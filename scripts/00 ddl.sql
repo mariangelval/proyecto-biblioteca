@@ -1,3 +1,4 @@
+-- Creación de la base de datos 
 DROP DATABASE IF EXISTS Biblioteca;
 CREATE DATABASE Biblioteca;
 
