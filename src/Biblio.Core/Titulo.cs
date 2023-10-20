@@ -1,7 +1,7 @@
 namespace Biblio.Core;
 public class Titulo
 {
-    public ushort idAutor { get; set; }
-    public required string nombre { get; set; }
-    public ushort anio_primero { get; set; }
+    public ushort IdAutor { get; set; }
+    public required string Nombre { get; set; }
+    public ushort Anio_primero { get; set; }
 }
