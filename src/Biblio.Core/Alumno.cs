@@ -10,5 +10,6 @@ namespace Biblio.Core
         public required string Contrasenia {get; set;}
 
         public Curso? Curso { get; set; }
+        
     }
 }
