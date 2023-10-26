@@ -9,7 +9,6 @@ namespace Biblio.Core
     {
         public ulong ISBN {get; set;}
         public byte NumCopia {get; set;}
-        public uint DNI {get; set;}
         public DateTime FechaSalida {get; set;}
         public DateTime FechaRegreso {get; set;}
 
