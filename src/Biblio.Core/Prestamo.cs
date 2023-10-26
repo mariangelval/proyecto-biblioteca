@@ -12,11 +12,15 @@ namespace Biblio.Core
         public DateTime FechaSalida {get; set;}
         public DateTime FechaRegreso {get; set;}
 
+        
+        public Ejemplar Ejemplar {get;set;}
         public Alumno Alumno {get;set;}
-        public Prestamo(Alumno alumno)
+        public Prestamo(Alumno alumno, Ejemplar ejemplar)
         {
             Alumno=alumno;
+            Ejemplar=ejemplar;
         }
+
 
     }
 }

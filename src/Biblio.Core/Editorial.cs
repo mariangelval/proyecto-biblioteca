@@ -4,5 +4,6 @@ namespace Biblio.Core
     {
         public ushort IdEditorial {get; set;}
         public required string Nombre {get; set;}
+        
     }
 }
