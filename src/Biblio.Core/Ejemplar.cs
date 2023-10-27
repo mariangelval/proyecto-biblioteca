@@ -9,5 +9,13 @@ public class Ejemplar
     public ushort cantPrestamos {get; set;}
     public ushort idTitulo {get; set;}
 
-    
+    public Editorial Editorial {get;set;}
+    public Titulo Titulo {get;set;}
+
+    public Ejemplar(Editorial editorial, Titulo titulo)
+    {
+        Editorial=editorial;
+        Titulo=titulo;
+    }
+
 }
