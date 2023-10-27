@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblio.Core", "Biblio.Core\Biblio.Core.csproj", "{2A410BB2-E823-431D-BFCC-8EF77E303A68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblio.AdoDapp", "Biblio.AdoDapp\Biblio.AdoDapp.csproj", "{AAECBDF9-0C30-496C-826A-C01640F8A9C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{2A410BB2-E823-431D-BFCC-8EF77E303A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A410BB2-E823-431D-BFCC-8EF77E303A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A410BB2-E823-431D-BFCC-8EF77E303A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAECBDF9-0C30-496C-826A-C01640F8A9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAECBDF9-0C30-496C-826A-C01640F8A9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAECBDF9-0C30-496C-826A-C01640F8A9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAECBDF9-0C30-496C-826A-C01640F8A9C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
