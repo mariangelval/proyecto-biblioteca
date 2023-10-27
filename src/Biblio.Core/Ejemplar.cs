@@ -8,4 +8,6 @@ public class Ejemplar
     public byte cantCopias {get; set;}
     public ushort cantPrestamos {get; set;}
     public ushort idTitulo {get; set;}
+
+    
 }
