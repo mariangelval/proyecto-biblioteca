@@ -4,13 +4,13 @@ using MySqlConnector;
 
 namespace Biblio.AdoDapp;
 
-public class AdoDapper : IAdo
+public class UnidadDapper : IAdo
 {
     private readonly IDbConnection _conexion;
-    public AdoDapper(IDbConnection conexion) => this._conexion = conexion;
+    public UnidadDapper(IDbConnection conexion) => this._conexion = conexion;
 
     //Este constructor usa por defecto la cadena para un conector MySQL
-    public AdoDapper(string cadena) => _conexion = new MySqlConnection(cadena);
+    public UnidadDapper(string cadena) => _conexion = new MySqlConnection(cadena);
     public void AltaAutor(Autor autor)
     {
         throw new NotImplementedException();
