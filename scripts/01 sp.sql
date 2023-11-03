@@ -11,12 +11,12 @@ END $$
 -- Dar de alta a los autores
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaAutores $$
-CREATE PROCEDURE altaAutores(unIdAutor SMALLINT UNSIGNED,
+CREATE PROCEDURE altaAutores( OUT unIdAutor SMALLINT UNSIGNED,
                             unNombre VARCHAR(45),
                             unApellido VARCHAR(45))
 BEGIN
-    INSERT INTO autores(idAutor, nombre, apellido)
-        VALUES(unIdAutor, unNombre, unApellido);
+    INSERT INTO autores(nombre, apellido) VALUE(unNombre, unApellido);
+    SET unIdAutor= LAST_INSERT_ID();
 END $$
 
 -- Dar de alta los títulos
