@@ -1,5 +1,6 @@
 -- INSERTS
 
+SELECT 'Dump' AS Estado $$
 -- Cursos
 CALL altaCursos(2, 5, 8);
 
@@ -11,11 +12,11 @@ CALL altaAlumnos(47046671, "Iliana", "Duarte", 1164505763, "iliana.duarteet12d1@
 
 -- Títulos disponibles
 CALL altaTitulos(1, "Orgullo y prejuicio", '1813');
-CALL altaAutores(1, "Jane", "Austen");
-CALL altaTitulosAutores(1, 1);
+CALL altaAutores(@idJaneAusten, "Jane", "Austen");
+CALL altaTitulosAutores(1, @idJaneAusten);
 CALL altaTitulos(2, "Proyecto Hail Mary", 2021);
-CALL altaAutores(2, "Andy", "Weir");
-CALL altaTitulosAutores(2,2);
+CALL altaAutores(@idAndyWeir, "Andy", "Weir");
+CALL altaTitulosAutores(2, @idAndyWeir);
 
 -- Editoriales 
 CALL altaEditoriales(1, "Austral");
@@ -42,12 +43,12 @@ CALL altaFueraCirculaciones(now(), 17,9788418037016 );
 -- Prestamos 
 INSERT INTO prestamos (`ISBN`, `numCopia`, `DNI`, `fechaSalida`, `fechaRegreso`) VALUES (9788418037016, 1, 46912870, '2023-09-28 10:18:08', NULL);
 
--- Si se trata de ejecutar el siguiente prestamo luego del anterior, el trigger que verifica si está prestado mostrará el mensaje de error:
-INSERT INTO prestamos (`ISBN`, `numCopia`, `DNI`, `fechaSalida`, `fechaRegreso`) VALUES (9788418037016, 1, 95847780, '2023-09-28 11:07:07', NULL);
+-- Mostrar el porcentaje de libros que están fuera de circulación 
+SELECT PorcentajeFuera(9788418037016);
 
+SELECT 'Falla por trigger' Descripcion;
 -- Si se trata de ejecutar el siguiente prestamo, el trigger que verifica si está fuera de circulación mostrará el mensaje de error:
 INSERT INTO prestamos (`ISBN`, `numCopia`, `DNI`, `fechaSalida`, `fechaRegreso`) VALUES (9788418037058, 1, 95847780, '2023-09-28 11:10:09', NULL);
 
-
--- Mostrar el porcentaje de libros que están fuera de circulación 
-SELECT PorcentajeFuera(9788418037016);
+-- Si se trata de ejecutar el siguiente prestamo luego del anterior, el trigger que verifica si está prestado mostrará el mensaje de error:
+INSERT INTO prestamos (`ISBN`, `numCopia`, `DNI`, `fechaSalida`, `fechaRegreso`) VALUES (9788418037016, 1, 95847780, '2023-09-28 11:07:07', NULL);

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblio.Core", "Biblio.Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblio.AdoDapp", "Biblio.AdoDapp\Biblio.AdoDapp.csproj", "{AAECBDF9-0C30-496C-826A-C01640F8A9C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblio.AdoDapper.Test", "Biblio.AdoDapper.Test\Biblio.AdoDapper.Test.csproj", "{EDF29CDB-52FC-49D1-BBF9-2FA0A864C639}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{AAECBDF9-0C30-496C-826A-C01640F8A9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAECBDF9-0C30-496C-826A-C01640F8A9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAECBDF9-0C30-496C-826A-C01640F8A9C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF29CDB-52FC-49D1-BBF9-2FA0A864C639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF29CDB-52FC-49D1-BBF9-2FA0A864C639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF29CDB-52FC-49D1-BBF9-2FA0A864C639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF29CDB-52FC-49D1-BBF9-2FA0A864C639}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

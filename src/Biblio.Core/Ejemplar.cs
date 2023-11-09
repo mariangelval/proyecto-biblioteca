@@ -17,5 +17,6 @@ public class Ejemplar
         Editorial=editorial;
         Titulo=titulo;
     }
+    
 
 }

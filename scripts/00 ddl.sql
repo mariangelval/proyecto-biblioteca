@@ -2,6 +2,7 @@
 DROP DATABASE IF EXISTS Biblioteca;
 CREATE DATABASE Biblioteca;
 
+SELECT 'Creando BD' AS Estado;
 USE Biblioteca; 
 
 CREATE TABLE Titulos

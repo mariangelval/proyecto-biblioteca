@@ -1,6 +1,7 @@
 -- TRIGGERS 
 -- Antes de realizar un préstamo, se tiene que verificar que el ejemplar NO se encuentre entre los ejemplares fuera de circulación o que esté prestado a otra persona; en caso de que se encuentre se tiene que cancelar la operación con la leyenda “Ejemplar fuera de circulación”.
 DELIMITER $$
+SELECT 'Creando Triggers' AS Estado $$
 DROP TRIGGER IF EXISTS ejemplarFueraCirculacion $$
 CREATE TRIGGER ejemplarFueraCirculacion AFTER INSERT ON prestamos
 FOR EACH ROW

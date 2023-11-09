@@ -1,5 +1,6 @@
 -- STORED PROCEDURES
 DELIMITER $$
+SELECT 'Creando Stored Procedure' AS Estado $$
 DROP PROCEDURE IF EXISTS altaTitulos $$
 CREATE PROCEDURE altaTitulos(unIdTitulo SMALLINT UNSIGNED,
                             unNombre VARCHAR(45),
@@ -15,8 +16,8 @@ CREATE PROCEDURE altaAutores( OUT unIdAutor SMALLINT UNSIGNED,
                             unNombre VARCHAR(45),
                             unApellido VARCHAR(45))
 BEGIN
-    INSERT INTO autores(nombre, apellido) VALUE(unNombre, unApellido);
-    SET unIdAutor= LAST_INSERT_ID();
+    INSERT INTO autores(nombre, apellido) VALUE (unNombre, unApellido);
+    SET unIdAutor = LAST_INSERT_ID();
 END $$
 
 -- Dar de alta los títulos
