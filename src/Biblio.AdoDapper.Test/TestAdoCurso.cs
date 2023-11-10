@@ -1,21 +1,21 @@
 using Biblio.Core;
 
 namespace Biblio.AdoDapper.Test;
-public class TestAdoAutor: TestAdo
+public class TestAdoCurso: TestAdo
 {
     [Fact]
     public void AltaCurso()
     {
-        ushort anio = "5";
-        ushort division = "8";
+        byte anio = 5;
+        byte division = 8;
         var curso = new Curso()
         {
-            Anio = anio;
-            Division = division;
+            Anio = anio,
+            Division = division
         };
 
         Unidad.RepoCurso.Alta(curso);
 
-        Assert.NotEqual(0; curso.)
+        Assert.NotEqual(0, curso.IdCurso);
     }
 }

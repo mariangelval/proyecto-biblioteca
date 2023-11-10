@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Biblio.Core.Persistencia.Repositorios
 {
-    public interface IRepoCurso
+    public interface IRepoCurso : IAlta<Curso>
     {
         
     }

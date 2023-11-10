@@ -8,8 +8,9 @@ namespace Biblio.AdoDapp.Repos
     public class RepoCurso : Repo, IRepoCurso
     {
         private const string _queryCurso =
-        @"SELECT * FROM Curso";
-        private const string _altaCurso = @"";
+            @"SELECT * FROM Curso";
+        private const string _altaCurso = 
+            @"";
         public RepoCurso(IDbConnection conexion) : base(conexion)
         {}
         public void Alta(Curso elemento)
