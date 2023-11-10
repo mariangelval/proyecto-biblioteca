@@ -23,19 +23,6 @@ public class UnidadDapper : IUnidad
 
     public IRepoAutor RepoAutor => _repoAutor;
 
-    public void AltaAutor(Autor autor)
-    {
-        var parametros= new DynamicParameters();
-        parametros.Add("@unIdAutor", direction: ParameterDirection.Output);
-        parametros.Add("@unNombre", autor.Nombre);
-        parametros.Add("@unApellido", autor.Apellido);
-
-        _conexion.Execute("altaAutores", parametros);
-
-        //Obtengo el valor de parametro de tipo salida
-        autor.IdAutor = parametros.Get<ushort>("@unIdAutor");
-    }
-
     public void Guardar()
     {
         throw new NotImplementedException();
