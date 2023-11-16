@@ -11,12 +11,12 @@ CALL altaAlumnos(47046671, "Iliana", "Duarte", 1164505763, "iliana.duarteet12d1@
 
 
 -- Títulos disponibles
-CALL altaTitulos(1, "Orgullo y prejuicio", '1813');
+CALL altaTitulos(@idOrgullo, "Orgullo y prejuicio", '1813');
 CALL altaAutores(@idJaneAusten, "Jane", "Austen");
-CALL altaTitulosAutores(1, @idJaneAusten);
-CALL altaTitulos(2, "Proyecto Hail Mary", 2021);
+CALL altaTitulosAutores(@idOrgullo, @idJaneAusten);
+CALL altaTitulos(@idProyecto, "Proyecto Hail Mary", 2021);
 CALL altaAutores(@idAndyWeir, "Andy", "Weir");
-CALL altaTitulosAutores(2, @idAndyWeir);
+CALL altaTitulosAutores(@idProyecto, @idAndyWeir);
 
 -- Editoriales 
 CALL altaEditoriales(1, "Austral");
@@ -26,11 +26,11 @@ CALL altaEditoriales(3, "Penguin");
 -- Acá doy de alta 4 ejemplares de diferentes editoriales:
 
 -- Orgullo y prejuicio
-CALL altaEjemplares(9788418037058, 1, 1, 1, 0);
-CALL altaEjemplares(4588428077058, 2, 1, 1, 0);
-CALL altaEjemplares(6588321077050, 3, 1, 1, 0);
+CALL altaEjemplares(9788418037058, 1, 1, 1, @idOrgullo);
+CALL altaEjemplares(4588428077058, 2, 1, 1, @idOrgullo);
+CALL altaEjemplares(6588321077050, 3, 1, 1, @idOrgullo);
 -- Proyecto Hail Mary
-CALL altaEjemplares(9788418037016, 2, 50, 2, 0);
+CALL altaEjemplares(9788418037016, 2, 50, 2, @idProyecto);
 
 -- Fuera de circulación
 CALL altaFueraCirculaciones(NOW(), 1, 9788418037058);

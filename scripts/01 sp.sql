@@ -2,12 +2,12 @@
 DELIMITER $$
 SELECT 'Creando Stored Procedure' AS Estado $$
 DROP PROCEDURE IF EXISTS altaTitulos $$
-CREATE PROCEDURE altaTitulos(unIdTitulo SMALLINT UNSIGNED,
+CREATE PROCEDURE altaTitulos(OUT unIdTitulo SMALLINT UNSIGNED,
                             unNombre VARCHAR(45),
                             unAnioPrimero SMALLINT UNSIGNED)
 BEGIN
-    INSERT INTO titulos(idTitulo,nombre,anio_primero)
-        VALUES(unIdTitulo, unNombre, unAnioPrimero);
+    INSERT INTO titulos(nombre, anio_primero) VALUES(unNombre, unAnioPrimero);
+        SET unIdTitulo = LAST_INSERT_ID();
 END $$
 -- Dar de alta a los autores
 DELIMITER $$
