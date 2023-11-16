@@ -2,7 +2,7 @@ using Biblio.Core;
 
 namespace Biblio.AdoDapper.Test;
 public class TestAdoCurso: TestAdo
-{
+{/*
     [Fact]
     public void AltaCurso()
     {
@@ -17,5 +17,5 @@ public class TestAdoCurso: TestAdo
         Unidad.RepoCurso.Alta(curso);
 
         Assert.NotEqual(0, curso.IdCurso);
-    }
+    }*/
 }

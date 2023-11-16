@@ -11,8 +11,8 @@ namespace Biblio.AdoDapp.Repos
         @"SELECT * FROM Titulos";
         private const string _altaTitulo =
             @"";
-        public RepoTitulo(IDbConnection conexion)
-            : base(conexion) {}
+        public RepoTitulo(IDbConnection conexion, IDbTransaction transaccion)
+        : base(conexion, transaccion) {}
         public void Alta(Titulo elemento)
         {
             throw new NotImplementedException();

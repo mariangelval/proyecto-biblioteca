@@ -16,6 +16,7 @@ public class TestAdoAutor: TestAdo
         };
 
         Unidad.RepoAutor.Alta(roberto);
+        Unidad.Guardar();
 
         Assert.NotEqual(0, roberto.IdAutor);
     }

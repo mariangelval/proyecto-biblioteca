@@ -11,11 +11,24 @@ namespace Biblio.AdoDapp.Repos
             @"SELECT * FROM Curso";
         private const string _altaCurso = 
             @"";
-        public RepoCurso(IDbConnection conexion) : base(conexion)
-        {}
+        public RepoCurso(IDbConnection conexion, IDbTransaction transaccion)
+        : base(conexion, transaccion) {}
         public void Alta(Curso elemento)
         {
-            throw new NotImplementedException();
+            var parametros= new DynamicParameters();
+            parametros.Add("@unIdCurso", direction: ParameterDirection.Output);
+            parametros.Add("@unAnio", elemento.Anio);
+            parametros.Add("@unDivision", elemento.Division);
+
+            Conexion.Execute("altaCursos", parametros, Transaccion, commandType: CommandType.StoredProcedure);
+
+            //Obtengo el valor de parametro de tipo salida
+            elemento.IdCurso=parametros.Get<byte>("@unIdCurso");
         }
+        public List<Curso> Obtener()
+        =>  Conexion.
+            Query<Curso>(_queryCurso, transaction: Transaccion).
+            ToList();
+        
     }
 }
