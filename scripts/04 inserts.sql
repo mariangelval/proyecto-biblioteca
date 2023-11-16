@@ -2,12 +2,12 @@
 
 SELECT 'Dump' AS Estado $$
 -- Cursos
-CALL altaCursos(2, 5, 8);
+CALL altaCursos(@id58, 5, 8);
 
 -- Alumnos
-CALL altaAlumnos(46912870, "Vanina", "Condorpocco", 1132675353,"vanyabrilconblas@gmail.com", 'cake', 2);
-CALL altaAlumnos(95847780, "Mariangel", "Valerio", 1164505763, "valeriomariangel855@gmail.com", 'mariangelmar', 2);
-CALL altaAlumnos(47046671, "Iliana", "Duarte", 1164505763, "iliana.duarteet12d1@gmail.com", 'iluduarte', 2);
+CALL altaAlumnos(46912870, "Vanina", "Condorpocco", 1132675353,"vanyabrilconblas@gmail.com", 'cake', @id58);
+CALL altaAlumnos(95847780, "Mariangel", "Valerio", 1164505763, "valeriomariangel855@gmail.com", 'mariangelmar', @id58);
+CALL altaAlumnos(47046671, "Iliana", "Duarte", 1164505763, "iliana.duarteet12d1@gmail.com", 'iluduarte', @id58);
 
 
 -- Títulos disponibles
