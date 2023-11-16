@@ -71,13 +71,13 @@ END $$
 -- Dar de alta los cursos
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaCursos $$
-CREATE PROCEDURE altaCursos(unIdCurso TINYINT UNSIGNED,
+CREATE PROCEDURE altaCursos(OUT unIdCurso TINYINT UNSIGNED,
                             unAnio TINYINT UNSIGNED,
                             unDivision TINYINT UNSIGNED)
 
 BEGIN 
-    INSERT INTO cursos(idCurso, anio, division)
-        VALUES(unIdCurso, unAnio, unDivision);
+    INSERT INTO cursos(anio, division) VALUES(unAnio, unDivision);
+        SET unIdCurso = LAST_INSERT_ID();
 END $$
 
 -- Dar de alta a los alumnos
