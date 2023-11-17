@@ -11,8 +11,8 @@ namespace Biblio.AdoDapp.Repos
             @"SELECT * FROM Cursos";
         private const string _altaCurso =
             @"";
-        public RepoCurso(IDbConnection conexion, IDbTransaction transaccion)
-        : base(conexion, transaccion) { }
+        public RepoCurso(UnidadDapper unidad)
+        : base(unidad) {}
         public void Alta(Curso elemento)
         {
             var parametros = new DynamicParameters();
