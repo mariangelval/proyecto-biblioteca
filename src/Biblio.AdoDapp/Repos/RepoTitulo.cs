@@ -7,7 +7,7 @@ namespace Biblio.AdoDapp.Repos
 {
     public class RepoTitulo: Repo
     {
-        private const string _queryTitulos =
+        private const string _queryTitulo =
         @"SELECT * FROM Titulos";
 
         public RepoTitulo(IDbConnection conexion, IDbTransaction transaccion)
@@ -24,7 +24,10 @@ namespace Biblio.AdoDapp.Repos
             //Objeto el valor parametro de tipo de salida 
             titulo.idTitulo = parametros.Get<ushort>("@unIdTitulo");
         }
-
-        //FALTA EL OBTENERRRRR !!!!!!!!!!!!!!!!!!!!!
+        public List<Titulo> Obtener()
+        => Conexion.
+            Query<Curso>(_queryTitulo, transaction: Transaccion).
+            ToList();
+        
     }
 }
