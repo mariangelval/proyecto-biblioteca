@@ -1,6 +1,6 @@
 using Biblio.Core;
 
-namespace Bilio.AdoDapper.Test;
+namespace Biblio.AdoDapper.Test;
 public class TestAdoTitulo : TestAdo
 {
     [Fact]

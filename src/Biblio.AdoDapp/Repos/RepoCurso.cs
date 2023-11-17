@@ -11,6 +11,14 @@ namespace Biblio.AdoDapp.Repos
             @"SELECT * FROM Cursos";
         private const string _altaCurso =
             @"";
+        private static readonly string _queryDetalleCurso
+        = @"SELECT * 
+            FROM Cursos
+            WHERE idCurso= @id;
+
+            SELECT *
+            FROM Alumnos
+            WHERE idCurso= @id;";
         public RepoCurso(UnidadDapper unidad)
         : base(unidad) {}
         public void Alta(Curso elemento)
@@ -25,10 +33,26 @@ namespace Biblio.AdoDapp.Repos
             //Obtengo el valor de parametro de tipo salida
             elemento.IdCurso = parametros.Get<byte>("@unIdCurso");
         }
+
+        public Curso? Detalle<N>(N id) where N : System.Numerics.IBinaryNumber<N>
+        {
+            using (var multi= Conexion.QueryMultiple(_queryDetalleCurso, new {id= id}, transaction: Transaccion))
+            {
+                var curso= multi.ReadSingleOrDefault<Curso>();
+                if(curso is not null)
+                {
+                    curso.Alumnos = multi.Read<Alumno>();
+                    //TODO asignar este curso a cada alumno
+                }
+                return curso;
+            }
+        }
+
         public List<Curso> Obtener()
         => Conexion.
             Query<Curso>(_queryCurso, transaction: Transaccion).
             ToList();
-
+        
+                
     }
 }

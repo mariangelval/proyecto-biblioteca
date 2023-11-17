@@ -29,5 +29,15 @@ public class TestAdoCurso : TestAdo
 
         Assert.NotEmpty(cursos);
         Assert.Contains(cursos, c => c.Anio == 5 && c.Division == 8);
+
+    }
+    [Fact]
+    public void Detalle()
+    {
+        var curso = Unidad.RepoCurso.Detalle(1);
+
+        Assert.NotNull(curso);
+        Assert.NotEmpty(curso.Alumnos);
+        Assert.Contains(curso.Alumnos, a => a.Apellido == "Duarte");
     }
 }
