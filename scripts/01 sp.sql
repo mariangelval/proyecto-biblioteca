@@ -6,13 +6,14 @@ CREATE PROCEDURE altaTitulos(OUT unIdTitulo SMALLINT UNSIGNED,
                             unNombre VARCHAR(45),
                             unAnioPrimero SMALLINT UNSIGNED)
 BEGIN
-    INSERT INTO titulos(nombre, anio_primero) VALUES(unNombre, unAnioPrimero);
+    INSERT INTO titulos(nombre, anio_primero) 
+    VALUES(unNombre, unAnioPrimero);
         SET unIdTitulo = LAST_INSERT_ID();
 END $$
 -- Dar de alta a los autores
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaAutores $$
-CREATE PROCEDURE altaAutores( OUT unIdAutor SMALLINT UNSIGNED,
+CREATE PROCEDURE altaAutores(OUT unIdAutor SMALLINT UNSIGNED,
                             unNombre VARCHAR(45),
                             unApellido VARCHAR(45))
 BEGIN
