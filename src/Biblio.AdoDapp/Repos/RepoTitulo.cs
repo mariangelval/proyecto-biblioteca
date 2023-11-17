@@ -6,7 +6,7 @@ namespace Biblio.AdoDapp.Repos;
 
 public class RepoTitulo: Repo
 {
-    private const string _queryTitulos =
+    private const string _queryTitulo =
     @"SELECT * FROM Titulos";
 
     public RepoTitulo(UnidadDapper unidad)
@@ -20,15 +20,12 @@ public class RepoTitulo: Repo
 
         Conexion.Execute("altaTitulos", parametros, Transaccion, commandType: CommandType.StoredProcedure);
 
-            Conexion.Execute("altaTitulos", parametros, Transaccion, CommandType.StoredProcedure);
-
-            //Objeto el valor parametro de tipo de salida 
-            titulo.idTitulo = parametros.Get<ushort>("@unIdTitulo");
+        //Objeto el valor parametro de tipo de salida 
+        titulo.IdTitulo = parametros.Get<ushort>("@unIdTitulo");
         }
-        public List<Titulo> Obtener()
-        => Conexion.
-            Query<Curso>(_queryTitulo, transaction: Transaccion).
-            ToList();
+    public List<Titulo> Obtener()
+    => Conexion.
+        Query<Titulo>(_queryTitulo, transaction: Transaccion).
+        ToList();
         
-    }
 }
