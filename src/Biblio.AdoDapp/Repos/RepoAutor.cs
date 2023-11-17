@@ -8,8 +8,8 @@ public class RepoAutor : Repo, IRepoAutor
 {
     private const string _queryAutores =
         @"SELECT * FROM Autores";
-    public RepoAutor(IDbConnection conexion, IDbTransaction transaccion)
-        : base(conexion, transaccion) {}
+    public RepoAutor(UnidadDapper unidad)
+        : base(unidad) {}
     public void Alta(Autor autor)
     {
         var parametros= new DynamicParameters();
