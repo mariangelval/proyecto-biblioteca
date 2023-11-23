@@ -6,5 +6,6 @@ public interface IUnidad
     IRepoAutor RepoAutor { get; }
     IRepoCurso RepoCurso{get; }
     IRepoTitulo RepoTitulo{get; }
+    IRepoEditorial RepoEditorial{get;}
     void Guardar();
 }

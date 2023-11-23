@@ -17,7 +17,7 @@ CREATE PROCEDURE altaAutores(OUT unIdAutor SMALLINT UNSIGNED,
                             unNombre VARCHAR(45),
                             unApellido VARCHAR(45))
 BEGIN
-    INSERT INTO autores(nombre, apellido) VALUE (unNombre, unApellido);
+    INSERT INTO autores(nombre, apellido) VALUES (unNombre, unApellido);
     SET unIdAutor = LAST_INSERT_ID();
 END $$
 
@@ -35,12 +35,12 @@ DELIMITER $$
 
 -- Dar de alta las editoriales
 DROP PROCEDURE IF EXISTS altaEditoriales $$
-CREATE PROCEDURE altaEditoriales(unIdEditorial SMALLINT UNSIGNED,
+CREATE PROCEDURE altaEditoriales(OUT unIdEditorial SMALLINT UNSIGNED,
                                 unEditorial VARCHAR(45))
 
 BEGIN
-    INSERT INTO editoriales(idEditorial, editorial)
-        VALUES(unIdEditorial, unEditorial);
+    INSERT INTO editoriales(editorial) VALUES(unEditorial);
+    SET unIdEditorial= LAST_INSERT_ID();
 END $$
 
 -- Dar de alta los ejemplares

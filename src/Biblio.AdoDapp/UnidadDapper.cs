@@ -13,6 +13,7 @@ public class UnidadDapper : IUnidad, IConTransaccion
     private readonly RepoAutor _repoAutor;
     private readonly RepoCurso _repoCurso;
     private readonly RepoTitulo _repoTitulo;
+    private readonly RepoEditorial _repoEditorial;
     public UnidadDapper(IDbConnection conexion) => this._conexion = conexion;
 
     //Este constructor usa por defecto la cadena para un conector MySQL
@@ -24,13 +25,16 @@ public class UnidadDapper : IUnidad, IConTransaccion
         _repoAutor = new RepoAutor(this);
         _repoCurso= new RepoCurso(this);
         _repoTitulo = new RepoTitulo(this);
+        _repoEditorial= new RepoEditorial(this);
     }
     
 
     public IRepoAutor RepoAutor => _repoAutor;
     public IRepoCurso RepoCurso => _repoCurso;
     public IRepoTitulo RepoTitulo => _repoTitulo;
+    public IRepoEditorial RepoEditorial=> _repoEditorial;
     public IDbConnection Conexion => _conexion;
+    
 
     public IDbTransaction Transaccion => _transaccion;
     public void Guardar()
