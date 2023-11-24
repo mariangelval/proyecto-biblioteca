@@ -1,6 +1,6 @@
 namespace Biblio.Core.Persistencia.Repositorios;
 
-public interface IRepoEditorial: IAlta<Ejemplar>, IListado<Ejemplar>
+public interface IRepoEditorial: IAlta<Editorial>, IListado<Editorial>
 {
     
 }
