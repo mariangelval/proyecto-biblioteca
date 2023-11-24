@@ -19,9 +19,9 @@ CALL altaAutores(@idAndyWeir, "Andy", "Weir");
 CALL altaTitulosAutores(@idProyecto, @idAndyWeir);
 
 -- Editoriales 
-CALL altaEditoriales(1, "Austral");
-CALL altaEditoriales(2, "Planeta");
-CALL altaEditoriales(3, "Penguin");
+CALL altaEditoriales(@idAustral, "Austral");
+CALL altaEditoriales(@idPlaneta, "Planeta");
+CALL altaEditoriales(@idPenguin, "Penguin");
 
 -- Acá doy de alta 4 ejemplares de diferentes editoriales:
 
