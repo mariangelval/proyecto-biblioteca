@@ -32,6 +32,9 @@ public class RepoAlumno : Repo<Alumno>, IRepoAlumno
         parametros.Add("@unCelular", alumno.Celular);
         parametros.Add("@unEmail", alumno.Email);
         parametros.Add("@unContrasenia", alumno.Contrasenia);
+        parametros.Add("@unidCurso", alumno.Curso is null ?
+                                        null :
+                                        alumno.Curso.IdCurso);
 
         EjecutarSP("altaAlumnos", parametros);
     }

@@ -90,11 +90,11 @@ CREATE PROCEDURE altaAlumnos(unDNI INT UNSIGNED,
                             unCelular BIGINT UNSIGNED, 
                             unEmail VARCHAR(45),
                             unContrasenia CHAR(64),
-                            unIdCUrso TINYINT UNSIGNED)
+                            unIdCurso TINYINT UNSIGNED)
 
 BEGIN
     INSERT INTO alumnos(DNI, nombre, apellido, celular, email, contrasenia, idCurso)
-        VALUES(unDNI, unNombre, unApellido, unCelular, unEmail, unContrasenia,  unIdCUrso);
+        VALUES(unDNI, unNombre, unApellido, unCelular, unEmail, unContrasenia,  unIdCurso);
 END $$
 
 

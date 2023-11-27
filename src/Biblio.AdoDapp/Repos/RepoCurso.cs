@@ -8,8 +8,6 @@ public class RepoCurso : Repo<Curso>, IRepoCurso
 {
     protected override string QueryListado =>
         @"SELECT * FROM Cursos";
-    private const string _altaCurso =
-        @"";
     private static readonly string _queryDetalleCurso
     = @"SELECT * 
             FROM Cursos
@@ -41,7 +39,10 @@ public class RepoCurso : Repo<Curso>, IRepoCurso
             if (curso is not null)
             {
                 curso.Alumnos = multi.Read<Alumno>();
-                //TODO asignar este curso a cada alumno
+                foreach (Alumno alumno in curso.Alumnos)
+                {
+                    alumno.Curso = curso;
+                }
             }
             return curso;
         }

@@ -6,14 +6,15 @@ public class TestAdoAlumno : TestAdo
     [Fact]
     public void AltaAlumnos()
     {
-        //TODO usar datos de un alumno que no este en la BD
-        uint dni = 95847780;
-        string nombre = "Mariangel";
-        string apellido = "Valerio";
-        ulong celular = 1164505763;
-        string email = "valeriomariangel855@gmail.com";
-        string contrasenia = "1234";
+        uint dni = 45833694;
+        string nombre = "Joel";
+        string apellido = "Guerra";
+        ulong celular = 1187654318;
+        string email = "joel@gmail.com";
+        string contrasenia = "4321";
+        var curso58 = Unidad.RepoCurso.Obtener().First(c => c.IdCurso == 1);
 
+        //TODO dar de alta un alumno sin curso
         var alumno = new Alumno()
         {
             DNI = dni,
@@ -21,10 +22,10 @@ public class TestAdoAlumno : TestAdo
             Apellido = apellido,
             Celular = celular,
             Email = email,
-            Contrasenia = contrasenia
+            Contrasenia = contrasenia,
+            Curso = curso58        
         };
 
-        //TODO traer un curso de la BD para asignarlo al alumno
 
         Unidad.RepoAlumno.Alta(alumno);
         Unidad.Guardar();
