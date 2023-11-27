@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Biblio.Core;
+using Biblio.Core.Persistencia.Repositorios;
 
-namespace Biblio.AdoDapp.Repos
+namespace Biblio.AdoDapp.Repos;
+public class RepoEjemplar : Repo<Ejemplar>, IRepoEjemplar
 {
-    public class RepoEjemplar
-    {
-        
-    }
+    protected override string QueryListado => throw new NotImplementedException();
+    public RepoEjemplar(UnidadDapper unidad)
+        : base(unidad) { }
 }
