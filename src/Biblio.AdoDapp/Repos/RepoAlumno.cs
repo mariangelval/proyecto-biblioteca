@@ -36,9 +36,9 @@ public class RepoAlumno : Repo<Alumno>, IRepoAlumno
         EjecutarSP("altaAlumnos", parametros);
     }
 
-    public Alumno? Detalle<N>(N id) where N : System.Numerics.IBinaryNumber<N>
+    public Alumno? Detalle(uint dni)
     {
-        using (var multi = Conexion.QueryMultiple(_queryDetalleAlumno, new { id = id }, transaction: Transaccion))
+        using (var multi = Conexion.QueryMultiple(_queryDetalleAlumno, new { id = dni }, transaction: Transaccion))
         {
             var alumno = multi.ReadSingleOrDefault<Alumno>();
             if (alumno is not null)

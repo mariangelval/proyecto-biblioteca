@@ -19,7 +19,7 @@ public class RepoCurso : Repo<Curso>, IRepoCurso
             FROM Alumnos
             WHERE idCurso= @id;";
     public RepoCurso(UnidadDapper unidad)
-    : base(unidad) {}
+    : base(unidad) { }
     public void Alta(Curso elemento)
     {
         var parametros = new DynamicParameters();
@@ -33,12 +33,12 @@ public class RepoCurso : Repo<Curso>, IRepoCurso
         elemento.IdCurso = parametros.Get<byte>("@unIdCurso");
     }
 
-    public Curso? Detalle<N>(N id) where N : System.Numerics.IBinaryNumber<N>
+    public Curso? Detalle(byte idCurso)
     {
-        using (var multi= Conexion.QueryMultiple(_queryDetalleCurso, new {id= id}, transaction: Transaccion))
+        using (var multi = Conexion.QueryMultiple(_queryDetalleCurso, new { id = idCurso }, transaction: Transaccion))
         {
-            var curso= multi.ReadSingleOrDefault<Curso>();
-            if(curso is not null)
+            var curso = multi.ReadSingleOrDefault<Curso>();
+            if (curso is not null)
             {
                 curso.Alumnos = multi.Read<Alumno>();
                 //TODO asignar este curso a cada alumno
