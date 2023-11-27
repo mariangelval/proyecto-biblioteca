@@ -8,7 +8,6 @@ public interface IUnidad
     IRepoTitulo RepoTitulo{get; }
     IRepoEditorial RepoEditorial{get; }
     IRepoAlumno RepoAlumno{get; }
-    IRepoEditorial RepoEditorial{get;}
     IRepoEjemplar RepoEjemplar{get;}
     void Guardar();
 }

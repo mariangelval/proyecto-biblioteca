@@ -4,9 +4,9 @@ using Biblio.Core.Persistencia.Repositorios;
 using Dapper;
 
 namespace Biblio.AdoDapp.Repos;
-public class RepoAutor : Repo, IRepoAutor
+public class RepoAutor : Repo<Autor>, IRepoAutor
 {
-    private const string _queryAutores =
+    protected override string QueryListado =>
         @"SELECT * FROM Autores";
     public RepoAutor(UnidadDapper unidad)
         : base(unidad) {}
@@ -17,14 +17,9 @@ public class RepoAutor : Repo, IRepoAutor
         parametros.Add("@unNombre", autor.Nombre);
         parametros.Add("@unApellido", autor.Apellido);
 
-        Conexion.Execute("altaAutores", parametros, Transaccion, commandType: CommandType.StoredProcedure);
+        EjecutarSP("altaAutores", parametros);
 
         //Obtengo el valor de parametro de tipo salida
         autor.IdAutor = parametros.Get<ushort>("@unIdAutor");
     }
-
-    public List<Autor> Obtener()
-        =>  Conexion.
-            Query<Autor>(_queryAutores, transaction: Transaccion).
-            ToList();
 }

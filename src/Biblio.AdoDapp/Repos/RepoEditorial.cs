@@ -2,11 +2,11 @@ using System.Data;
 using Biblio.Core;
 using Biblio.Core.Persistencia.Repositorios;
 using Dapper;
-namespace Biblio.AdoDapp.Repos;
 
-public class RepoEditorial : Repo, IRepoEditorial
+namespace Biblio.AdoDapp.Repos;
+public class RepoEditorial : Repo<Editorial>, IRepoEditorial
 {
-    private const string _queryEditorial=
+    protected override string QueryListado =>
     @"SELECT idEditorial, editorial nombre FROM Editoriales";
 
     public RepoEditorial(UnidadDapper unidad)
@@ -18,16 +18,9 @@ public class RepoEditorial : Repo, IRepoEditorial
         parametros.Add("@unIdEditorial", direction: ParameterDirection.Output);
         parametros.Add("@unEditorial", editorial.Nombre);
 
-        Conexion.Execute("altaEditoriales", parametros, Transaccion, commandType: CommandType.StoredProcedure);
+        EjecutarSP("altaEditoriales", parametros);
 
         //Obtengo el valor de parametro de tipo salida
         editorial.IdEditorial= parametros.Get<ushort>("@unIdEditorial");
     }
-
-    public List<Editorial> Obtener()
-    => Conexion.
-        Query<Editorial>(_queryEditorial, transaction: Transaccion).
-        ToList();
-
-    
 }

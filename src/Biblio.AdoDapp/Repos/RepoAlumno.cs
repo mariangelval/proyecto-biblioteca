@@ -1,13 +1,12 @@
-using System.Data;
 using Biblio.Core;
 using Biblio.Core.Persistencia.Repositorios;
 using Dapper;
 
 namespace Biblio.AdoDapp.Repos;
 
-public class RepoAlumno : Repo, IRepoAlumno
+public class RepoAlumno : Repo<Alumno>, IRepoAlumno
 {
-    private const string _queryAlumnos =
+    protected override string QueryListado =>
         "@SELECT * FROM Alumnos";
 
     private const string _altaAlumnos =
@@ -34,12 +33,12 @@ public class RepoAlumno : Repo, IRepoAlumno
         parametros.Add("@unEmail", alumno.Email);
         parametros.Add("@unContrasenia", alumno.Contrasenia);
 
-        Conexion.Execute("altaAlumnos", parametros, Transaccion, commandType: CommandType.StoredProcedure);
+        EjecutarSP("altaAlumnos", parametros);
     }
 
-    public Alumno? Detalle<N>(N id) where N : System.Numerics.IBinaryNumber<N>
+    public Alumno? Detalle(uint dni)
     {
-        using (var multi = Conexion.QueryMultiple(_queryDetalleAlumno, new { id = id }, transaction: Transaccion))
+        using (var multi = Conexion.QueryMultiple(_queryDetalleAlumno, new { id = dni }, transaction: Transaccion))
         {
             var alumno = multi.ReadSingleOrDefault<Alumno>();
             if (alumno is not null)
@@ -49,9 +48,4 @@ public class RepoAlumno : Repo, IRepoAlumno
             return alumno;
         }
     }
-
-    public List<Alumno> Obtener()
-        => Conexion.
-            Query<Alumno>(_queryAlumnos, transaction: Transaccion).
-            ToList();
 }

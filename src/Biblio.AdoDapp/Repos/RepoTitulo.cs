@@ -4,13 +4,12 @@ using Biblio.Core.Persistencia.Repositorios;
 using Dapper;
 
 namespace Biblio.AdoDapp.Repos;
-
-public class RepoTitulo : Repo, IRepoTitulo
+public class RepoTitulo : Repo<Titulo>, IRepoTitulo
 {
-    private const string _queryTitulo =
+    protected override string QueryListado =>
     @"SELECT * FROM Titulos";
-
-    private const string _queryInsertTitulosAutores = @"INSERT INTO TitulosAutores(idTitulo, idAutor) VALUES(@unIdTitulo, @unIdAutor)";
+    private const string _queryInsertTitulosAutores =
+        @"INSERT INTO TitulosAutores(idTitulo, idAutor) VALUES(@unIdTitulo, @unIdAutor)";
     public RepoTitulo(UnidadDapper unidad)
     : base(unidad) { }
     public void Alta(Titulo titulo)
@@ -20,7 +19,7 @@ public class RepoTitulo : Repo, IRepoTitulo
         parametros.Add("@unNombre", titulo.Nombre);
         parametros.Add("@unanioPrimero", titulo.Anio_primero);
 
-        Conexion.Execute("altaTitulos", parametros, Transaccion, commandType: CommandType.StoredProcedure);
+        EjecutarSP("altaTitulos", parametros);
 
         //Objeto el valor parametro de tipo de salida 
         titulo.IdTitulo = parametros.Get<ushort>("@unIdTitulo");
@@ -29,11 +28,5 @@ public class RepoTitulo : Repo, IRepoTitulo
             Select(a => new { unIdAutor = a.IdAutor, unIdTitulo = titulo.IdTitulo });
 
         Conexion.Execute(_queryInsertTitulosAutores, parametrosInsert, transaction: Transaccion);
-
     }
-    public List<Titulo> Obtener()
-    => Conexion.
-        Query<Titulo>(_queryTitulo, transaction: Transaccion).
-        ToList();
-
 }
