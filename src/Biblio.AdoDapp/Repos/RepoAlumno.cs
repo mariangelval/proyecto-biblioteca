@@ -9,9 +9,6 @@ public class RepoAlumno : Repo<Alumno>, IRepoAlumno
     protected override string QueryListado =>
         "@SELECT * FROM Alumnos";
 
-    private const string _altaAlumnos =
-        @"";
-
     private static readonly string _queryDetalleAlumno
     = @"SELECT *
         FROM Alumnos
