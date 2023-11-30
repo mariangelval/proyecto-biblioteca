@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Biblio.Core.Persistencia.Repositorios
 {
-    public interface IRepoEjemplar
+    public interface IRepoEjemplar: IAlta<Ejemplar>, IListado<Ejemplar>, IDetallePorIdSimple<Ejemplar, ulong>
     {
         
     }
