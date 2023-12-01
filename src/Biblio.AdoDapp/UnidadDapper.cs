@@ -17,6 +17,7 @@ public class UnidadDapper : IUnidad, IConTransaccion
     private readonly RepoAlumno _repoAlumno;
     private readonly RepoEjemplar _repoEjemplar;
     private readonly RepoFueraCirculacion _repoFueraCirculacion;
+    private readonly RepoPrestamo _repoPrestamo;
     public UnidadDapper(IDbConnection conexion)
     {
         _conexion = conexion;
@@ -29,6 +30,7 @@ public class UnidadDapper : IUnidad, IConTransaccion
         _repoAlumno = new RepoAlumno(this);
         _repoEjemplar = new RepoEjemplar(this);
         _repoFueraCirculacion = new RepoFueraCirculacion(this);
+        _repoPrestamo= new RepoPrestamo(this);
     }
 
     //Este constructor usa por defecto la cadena para un conector MySQL
@@ -42,6 +44,7 @@ public class UnidadDapper : IUnidad, IConTransaccion
     public IRepoAlumno RepoAlumno => _repoAlumno;
     public IRepoEjemplar RepoEjemplar => _repoEjemplar;
     public IRepoFueraCirculacion RepoFueraCirculacion => _repoFueraCirculacion;
+    public IRepoPrestamo RepoPrestamo=> _repoPrestamo;
     public IDbConnection Conexion => _conexion;
     public IDbTransaction Transaccion => _transaccion;
 
