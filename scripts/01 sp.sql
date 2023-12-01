@@ -59,7 +59,7 @@ END $$
 
 -- Dar de alta los ejemplares fuera de circulación
 DELIMITER $$
-DROP PROCEDURE IF EXISTS altaFueraCirculaciones $$
+DROP PROCEDURE IF EXISTS altaFueraCirculacion $$
 CREATE PROCEDURE altaFueraCirculaciones(unFecha_salida DATETIME,
                                         unNum_copia TINYINT UNSIGNED, 
                                         unISBN BIGINT UNSIGNED)

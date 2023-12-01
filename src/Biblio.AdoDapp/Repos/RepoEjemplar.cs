@@ -20,7 +20,13 @@ public class RepoEjemplar : Repo<Ejemplar>, IRepoEjemplar
         SELECT *
         FROM Titulos
         JOIN Ejemplares USING (idTitulo)
-        WHERE ISBN= @id";
+        WHERE ISBN= @id
+
+        SELECT * 
+        FROM FueraCirculacion
+        JOIN  Ejemplares USING (ISBN)
+        WHERE ISBN = @id
+        ";
     public RepoEjemplar(UnidadDapper unidad)
         : base(unidad) { }
 

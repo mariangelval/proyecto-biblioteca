@@ -9,5 +9,6 @@ public interface IUnidad
     IRepoEditorial RepoEditorial{get; }
     IRepoAlumno RepoAlumno{get; }
     IRepoEjemplar RepoEjemplar{get;}
+    IRepoFueraCirculacion RepoFueraCirculacion {get; }
     void Guardar();
 }
