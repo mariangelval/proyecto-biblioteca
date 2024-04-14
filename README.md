@@ -14,7 +14,7 @@ A lo largo de esta documentación, encontrarás información detallada sobre la 
 ### Tenologías Utilizadas 🔨
 * **MySQL** como sistema de *gestión de bases de datos* relacional para almacenar y administrar la información relacionada con los libros, usuarios y préstamos de la biblioteca.
 
-* **Dapper** como *Capa de Acceso a Datos*. Esta es una biblioteca de mapeo objeto-relacional (ORM) para .NET que facilita las operaciones CRUD y el manejo eficiente de consultas SQL desde la aplicación desarrollada en C#. [Más información](https://www.learndapper.com/)
+* **Dapper** como *Capa de abstracción*. Esta es una biblioteca de mapeo objeto-relacional (ORM) para .NET que facilita las operaciones CRUD y el manejo eficiente de consultas SQL desde la aplicación desarrollada en C#. [Más información](https://www.learndapper.com/)
 
 * **C#** como *lenguaje de programación* para desarrollar la lógica de la aplicación. Este es un lenguaje de programación robusto y orientado a objetos que ofrece una amplia gama de funcionalidades y facilidades para el desarrollo de aplicaciones de escritorio.
 
