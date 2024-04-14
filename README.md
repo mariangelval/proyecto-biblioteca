@@ -24,13 +24,5 @@ A lo largo de esta documentación, encontrarás información detallada sobre la 
 
 En este apartado, entenderás la función de cada una de las carpetas y partes del proyecto. 
 
-#### scripts
-En esta carpeta se encuentan todos los archivos correspondientes a la base de datos: DDL, stored procedures, inserts, triggers y permisos de usuario. 
-
-#### src
-Esta carpeta contiene dentro de sí toda la lógica e implementación C# con la que vamos a trabajar. A su vez, todo esto está dividido por otras carpetas.
-
-##### Biblio.Ado.Dapp
-
 
 
